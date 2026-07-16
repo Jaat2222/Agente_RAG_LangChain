@@ -96,15 +96,15 @@ TC-06,Persistencia de Historial Semántico,[Pregunta: Jornada laboral -> 40 hrs]
 ☁️ Guía de Despliegue en Streamlit Cloud
 Para desplegar la aplicación de forma gratuita en Streamlit Community Cloud:
 
-Haz un push de tu código a un repositorio público en GitHub (asegúrate de que el archivo PDF que lee tu función esté incluido o se cargue de forma dinámica).
+1. Haz un push de tu código a un repositorio público en GitHub (asegúrate de que el archivo PDF que lee tu función esté incluido o se cargue de forma dinámica).
 
-Ve a share.streamlit.io e inicia sesión con tu cuenta de GitHub.
+2. Ve a share.streamlit.io e inicia sesión con tu cuenta de GitHub.
 
-Haz clic en "New app", selecciona tu repositorio, la rama (main o master) y el archivo de entrada (app.py).
+3. Haz clic en "New app", selecciona tu repositorio, la rama (main o master) y el archivo de entrada (app.py).
 
-Abre la sección de Advanced Settings e ingresa tu clave secreta de Cohere en la sección de secretos:
+4. Abre la sección de Advanced Settings e ingresa tu clave secreta de Cohere en la sección de secretos:
 
 COHERE_API_KEY = "tu_api_key_aquí"
 
-Haz clic en Deploy. ¡Tu aplicación estará lista y pública en segundos!
+5. Haz clic en Deploy. ¡Tu aplicación estará lista y pública en segundos!
 
