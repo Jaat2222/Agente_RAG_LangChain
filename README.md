@@ -23,13 +23,13 @@ El agente no es un sistema RAG tradicional; implementa una arquitectura robusta 
 ```mermaid
 graph TD
     A[Pregunta del Usuario] --> B{¿Historial?}
-    B -->|Sí| C[Contextualizador de Consultas]
-    B -->|No| D[Recuperación Vectorial Chroma]
+    B -->|Si| C[Contextualizador de Consultas]
+    B -->|No| D[Recuperacion Vectorial Chroma]
     C --> D
-    D --> E[Reranking con Cohere]
-    E --> F[Filtro Semántico de Backend]
-    F -->|Entidades NO coinciden| G[Rechazo Automático]
-    F -->|Entidades coinciden| H[LLM: command-r-08-2024]
+    D --> E[Rerank Cohere]
+    E --> F[Filtro Semantico]
+    F -->|No coincide| G[Rechazo Automatico]
+    F -->|Si coincide| H[LLM: command-r-08-2024]
     H --> I[Respuesta Limpia]
 Memoria y Contextualizador Conversacional: Las preguntas de seguimiento se reformulan utilizando el historial de chat mediante una cadena secundaria de LangChain para que las consultas sean independientes antes de ir al buscador.
 
