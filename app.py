@@ -142,17 +142,21 @@ if user_query := st.chat_input("Escribe tu consulta aquí..."):
                 "chat_history": st.session_state.chat_history
             })
             
-            # --- CANDADO DE SEGURIDAD PARA ENTIDADES NO EXISTENTES ---
-            # Extraemos palabras clave de la pregunta (ignorando conectores comunes)
+           # --- CANDADO DE SEGURIDAD INTEGRADO ---
             sujeto_pregunta = pregunta_final.lower()
-            entidades_clave = [w for w in sujeto_pregunta.split() if len(w) > 4 and w not in ["quien", "sobre", "como", "cual", "que", "donde"]]
             
-            # Si el usuario busca algo específico (como un nombre propio) que NO aparece en el texto del PDF,
-            # forzamos el mensaje estricto de rechazo ignorando cualquier intento de alucinación del LLM.
-            if entidades_clave and not any(entidad in contexto_str.lower() for entidad in entidades_clave):
-                respuesta_final = "Lo siento, no puedo responder a esa pregunta ya que la información no se encuentra en el documento proporcionado."
+            # Filtramos palabras clave relevantes (longitud > 5 para evitar palabras vacías)
+            palabras_a_validar = [w for w in sujeto_pregunta.split() if len(w) > 5 and w not in ["pregunta", "informacion", "documento", "reglamento", "contrato"]]
+            
+            # Si hay palabras clave, verificamos que existan en el contexto recuperado
+            if palabras_a_validar:
+                coincidencias = [palabra for palabra in palabras_a_validar if palabra in contexto_str.lower()]
+                
+                # Si no encontramos ninguna coincidencia, forzamos el rechazo
+                if len(coincidencias) == 0:
+                     respuesta_final = "Lo siento, no puedo responder a esa pregunta ya que la información no se encuentra en el documento proporcionado."
 
-            # Limpiador de muletillas heredadas por el historial de chat (Sí, / No, )
+            # Limpiador de muletillas heredadas
             if respuesta_final.startswith(("Sí, ", "No, ", "Sí. ", "No. ")):
                 partes = respuesta_final.split(", ", 1)
                 if len(partes) > 1:
