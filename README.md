@@ -75,24 +75,30 @@ Tener instalado Python 3.10 o superior y una API Key activa de Cohere.
 
 1. Clonar el repositorio
 git clone [https://github.com/Jaat2222/Agente_RAG_LangChain.git](https://github.com/Jaat2222/Agente_RAG_LangChain.git)
+
 cd Agente_RAG_LangChain
 
-2. Crear y activar el entorno virtual
+3. Crear y activar el entorno virtual
 En Windows (CMD):
+
 python -m venv venv
 venv\Scripts\activate
 
-3. Instalar las dependencias
+4. Instalar las dependencias
+   
 pip install -r requirements.txt
 
-4. Configurar la API Key
+5. Configurar la API Key
 En Windows (CMD):
+
 set COHERE_API_KEY=tu_cohere_api_key_real_aquí
 
-5. Ejecutar la aplicación de forma local
+6. Ejecutar la aplicación de forma local
+   
 streamlit run app.py
 
-🧪 Pruebas de Estrés y Ejemplos de Interacción
+🧪 Pruebas de Estrés y Ejemplos de Interacción  
+
 A continuación, se documenta la Matriz de Pruebas de Estrés empleada para certificar la seguridad y robustez del agente inteligente ante ataques o preguntas inválidas.
 
 ### Matriz de Casos de Prueba (QA de Agente)
