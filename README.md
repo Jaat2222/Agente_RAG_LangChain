@@ -13,7 +13,7 @@ Desarrollado como parte de los entregables del **Challenge Alura Agente**, la ap
 
 * **Repositorio en GitHub:** [https://github.com/Jaat2222/Agente_RAG_LangChain](https://github.com/Jaat2222/Agente_RAG_LangChain)
 * **Aplicación en Producción (Streamlit Cloud):** [Ir a la aplicación en vivo](https://agenteraglangchain-dla4evbwgcxmyqscyrj4pr.streamlit.app)
-* **Demostración en Video:** [Ver video de interacción en YouTube](https://drive.google.com/file/d/1qO-t9czw9OuRlzVdkFBYb3mIbgQ_Hv7M/view?usp=sharing))
+* **Demostración en Video:** [Ver video de interacción en YouTube](https://drive.google.com/file/d/1qO-t9czw9OuRlzVdkFBYb3mIbgQ_Hv7M/view?usp=sharing)
 
 
 
