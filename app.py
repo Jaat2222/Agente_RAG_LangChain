@@ -77,7 +77,7 @@ contextualize_chain = contextualize_q_prompt | llm | StrOutputParser()
 
 # --- PROMPT DE RESPUESTA FINAL ULTRA-ESTRICTO ---
 # Redactamos el prompt con reglas severas para que se resigne a responder solo con el contexto
-# --- PROMPT DE RESPUESTA FINAL ULTRA-ESTRICTO ---
+
 system_prompt = (
     "Eres un asistente de inteligencia artificial sumamente estricto y preciso. Tu única fuente de verdad es el contexto provisto abajo.\n\n"
     "REGLAS CRÍTICAS DE OPERACIÓN:\n"
