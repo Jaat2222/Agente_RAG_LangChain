@@ -13,6 +13,8 @@ Desarrollado como parte de los entregables del **Challenge Alura Agente**, la ap
 
 * **Repositorio en GitHub:** `[Pega aquí el enlace a tu repositorio público]`
 * **Aplicación en Producción (Streamlit Cloud):** `[Pega aquí tu enlace público de Streamlit Cloud]`
+* **Demostración en Video:**
+
 
 ---
 
@@ -45,32 +47,32 @@ El agente no es un sistema RAG tradicional; implementa una arquitectura robusta 
 
      * Paso 1: Extracción inicial de fragmentos utilizando Embeddings Multilingües (embed-multilingual-v3.0) almacenados en una base vectorial Chroma en memoria.
 
-     *Paso 2: Reordenamiento semántico utilizando Cohere Rerank (rerank-v3.5), seleccionando únicamente los 3 fragmentos de mayor relevancia semántica (top_n=3) para minimizar ruido y consumo de tokens.
+     * Paso 2: Reordenamiento semántico utilizando Cohere Rerank (rerank-v3.5), seleccionando únicamente los 3 fragmentos de mayor relevancia semántica (top_n=3) para minimizar ruido y consumo de tokens.
 
 * Filtro de Seguridad Semántica (Filtro Anti-Alucinaciones): Una capa física en Python extrae los nombres y conceptos clave de la pregunta del usuario (entidades_clave) y valida su existencia física en los fragmentos de texto recuperados del PDF. Si un usuario intenta preguntar por algo que no existe en el documento, el backend intercepta la consulta y la bloquea de inmediato, evitando que el LLM alucine.
 
 🧰 Tecnologías y Herramientas Utilizadas
-Framework de IA: LangChain (LCEL - LangChain Expression Language)
+* Framework de IA: LangChain (LCEL - LangChain Expression Language)
 
-Modelos de Lenguaje (LLM): Cohere Chat (command-r-08-2024) optimizado para RAG y respuestas estructuradas.
+* Modelos de Lenguaje (LLM): Cohere Chat (command-r-08-2024) optimizado para RAG y respuestas estructuradas.
 
-Modelo de Embeddings: Cohere Embeddings (embed-multilingual-v3.0).
+* Modelo de Embeddings: Cohere Embeddings (embed-multilingual-v3.0).
 
-Compresor Semántico (Reranker): Cohere Rerank (rerank-v3.5).
+* Compresor Semántico (Reranker): Cohere Rerank (rerank-v3.5).
 
-Base de Datos Vectorial: Chroma (almacenamiento vectorial en memoria/local).
+* Base de Datos Vectorial: Chroma (almacenamiento vectorial en memoria/local).
 
-Interfaz de Usuario: Streamlit.
+* Interfaz de Usuario: Streamlit.
 
-Lenguaje: Python 3.10+
+* Lenguaje: Python 3.10+
 
 🚀 Instrucciones para Ejecución Local y Configuración
 Prerrequisitos
 Tener instalado Python 3.10 o superior y una API Key activa de Cohere.
 
 1. Clonar el repositorio
-git clone [https://github.com/TU_USUARIO/TU_REPOSITORIO.git](https://github.com/TU_USUARIO/TU_REPOSITORIO.git)
-cd TU_REPOSITORIO
+git clone [https://github.com/Jaat2222/Agente_RAG_LangChain.git](https://github.com/Jaat2222/Agente_RAG_LangChain.git)
+cd Agente_RAG_LangChain
 
 2. Crear y activar el entorno virtual
 En Windows (CMD):
