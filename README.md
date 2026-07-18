@@ -16,31 +16,38 @@ Desarrollado como parte de los entregables del **Challenge Alura Agente**, la ap
 
 ---
 
-## 🛠️ Arquitectura de la Solución
+🛠️ Arquitectura de la Solución
+El agente no es un sistema RAG tradicional; implementa una arquitectura robusta de tres etapas en cascada para asegurar precisión corporativa:
 
-El agente no es un sistema RAG tradicional; implementa una arquitectura robusta de tres etapas para asegurar precisión corporativa:
+[ Pregunta del Usuario ]
+         │
+         ├──► ¿Tiene Historial? ──( Sí )──► [ Contextualizador (LangChain) ]
+         │                                               │
+         └──► ( No ) ────────────────────────────────────┴──► [ Recuperación Vectorial (Chroma) ]
+                                                                        │
+                                                                  [ Rerank Cohere v3.5 ]
+                                                                        │
+                                                          【 Filtro Semántico Backend 】
+                                                                        │
+                                         ┌──────────────────────────────┴──────────────────────────────┐
+                                     ( No coincide )                                               ( Sí coincide )
+                                         │                                                             │
+                                         ▼                                                             ▼
+                           ❌ [ Rechazo Automático e Inmediato ]                        🤖 [ LLM: command-r-08-2024 ]
+                                                                                                       │
+                                                                                                       ▼
+                                                                                        ✔️ [ Respuesta Limpia al Usuario ]
 
-```mermaid
-graph TD
-    A[Pregunta del Usuario] --> B{¿Tiene Historial?}
-    B -->|Sí| C["Contextualizador de Consultas (LangChain)"]
-    B -->|No| D[Recuperación Vectorial Chroma]
-    C --> D
-    D --> E[Rerank Cohere v3.5]
-    E --> F{Filtro Semántico Backend}
-    F -->|No coincide| G[Rechazo Automático e Inmediato]
-    F -->|Sí coincide| H["LLM: ChatCohere (command-r-08-2024)"]
-    H --> I[Respuesta Limpia al Usuario]
+🧠 Detalle de los Componentes Clave:
+* Memoria y Contextualizador Conversacional: Las preguntas de seguimiento se reformulan utilizando el historial de chat mediante una cadena secundaria de LangChain para que las consultas sean independientes antes de ir al buscador.
 
-Memoria y Contextualizador Conversacional: Las preguntas de seguimiento se reformulan utilizando el historial de chat mediante una cadena secundaria de LangChain para que las consultas sean independientes antes de ir al buscador.
+* Recuperación Semántica en Dos Pasos (Reranking):
 
-Recuperación Semántica en Dos Pasos (Reranking):
+     * Paso 1: Extracción inicial de fragmentos utilizando Embeddings Multilingües (embed-multilingual-v3.0) almacenados en una base vectorial Chroma en memoria.
 
-Paso 1: Extracción inicial de fragmentos utilizando Embeddings Multilingües (embed-multilingual-v3.0) almacenados localmente en una base vectorial Chroma.
+     *Paso 2: Reordenamiento semántico utilizando Cohere Rerank (rerank-v3.5), seleccionando únicamente los 3 fragmentos de mayor relevancia semántica (top_n=3) para minimizar ruido y consumo de tokens.
 
-Paso 2: Reordenamiento semántico utilizando Cohere Rerank (rerank-v3.5), seleccionando únicamente los 3 fragmentos de mayor relevancia semántica (top_n=3) para minimizar ruido y consumo de tokens.
-
-Filtro de Seguridad Semántica (Filtro Anti-Alucinaciones): Una capa física en Python extrae los nombres y conceptos clave de la pregunta del usuario (entidades_clave) y valida su existencia física en los fragmentos de texto recuperados del PDF. Si un usuario intenta preguntar por algo que no existe en el documento (como "Frida Kahlo" o leyes externas), el backend intercepta la consulta y la bloquea de inmediato, evitando que el LLM alucine.
+* Filtro de Seguridad Semántica (Filtro Anti-Alucinaciones): Una capa física en Python extrae los nombres y conceptos clave de la pregunta del usuario (entidades_clave) y valida su existencia física en los fragmentos de texto recuperados del PDF. Si un usuario intenta preguntar por algo que no existe en el documento, el backend intercepta la consulta y la bloquea de inmediato, evitando que el LLM alucine.
 
 🧰 Tecnologías y Herramientas Utilizadas
 Framework de IA: LangChain (LCEL - LangChain Expression Language)
