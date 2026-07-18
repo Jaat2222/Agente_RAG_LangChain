@@ -20,7 +20,8 @@ Desarrollado como parte de los entregables del **Challenge Alura Agente**, la ap
 
 ---
 
-🛠️ Arquitectura de la Solución El agente no es un sistema RAG tradicional; implementa una arquitectura robusta de tres etapas en cascada para asegurar precisión corporativa:
+### 🛠️ Arquitectura de la Solución   
+El agente no es un sistema RAG tradicional; implementa una arquitectura robusta de tres etapas en cascada para asegurar precisión corporativa:
 
 ```text
 [ Pregunta del Usuario ]
