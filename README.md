@@ -74,6 +74,7 @@ Prerrequisitos
 Tener instalado Python 3.10 o superior y una API Key activa de Cohere.
 
 1. Clonar el repositorio
+   
 git clone [https://github.com/Jaat2222/Agente_RAG_LangChain.git](https://github.com/Jaat2222/Agente_RAG_LangChain.git)
 
 cd Agente_RAG_LangChain
