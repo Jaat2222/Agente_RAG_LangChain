@@ -41,6 +41,7 @@ Desarrollado como parte de los entregables del **Challenge Alura Agente**, la ap
                                                                                                        │
                                                                                                        ▼
                                                                                         ✔️ [ Respuesta Limpia al Usuario ]
+```
 
 🧠 Detalle de los Componentes Clave:
 * Memoria y Contextualizador Conversacional: Las preguntas de seguimiento se reformulan utilizando el historial de chat mediante una cadena secundaria de LangChain para que las consultas sean independientes antes de ir al buscador.
