@@ -94,7 +94,6 @@ streamlit run app.py
 🧪 Pruebas de Estrés y Ejemplos de Interacción
 A continuación, se documenta la Matriz de Pruebas de Estrés empleada para certificar la seguridad y robustez del agente inteligente ante ataques o preguntas inválidas.
 
-```markdown
 ### Matriz de Casos de Prueba (QA de Agente)
 
 | ID | Tipo de Prueba | Pregunta de Entrada (Prompt) | Respuesta Generada / Acción del Agente | Estado |
