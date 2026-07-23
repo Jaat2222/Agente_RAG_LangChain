@@ -1,4 +1,4 @@
-# Agente_RAG_LangChain
+# RAG_LangChain
 Agente de consulta de información interna de la empresa PixelForge Tech S.A. de C.V.
 
 # 🤖 RAG Avanzado para Consulta de Normativas Internas
