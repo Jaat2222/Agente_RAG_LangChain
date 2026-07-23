@@ -1,7 +1,7 @@
 # Agente_RAG_LangChain
 Agente de consulta de información interna de la empresa PixelForge Tech S.A. de C.V.
 
-# 🤖 Agente RAG Avanzado para Consulta de Normativas Internas
+# 🤖 RAG Avanzado para Consulta de Normativas Internas
 
 Este proyecto consiste en un **Agente de Inteligencia Artificial de tipo RAG (Retrieval-Augmented Generation)** altamente seguro y conversacional, diseñado para responder preguntas precisas basadas en la información de un contrato o reglamento interno de trabajo en formato PDF (en este caso, *PixelForge Tech S.A. de C.V.*).
 
